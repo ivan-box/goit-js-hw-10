@@ -7,7 +7,9 @@ export function fetchCountries(name) {
   return fetch(`${URL}/${name}?fields=${FILTER_RESPONSE}`)
     .then(response => {
       if (response.status === 404) {
-        Notiflix.Notify.warning('Oops, there is no country with that name');
+        return Notiflix.Notify.warning(
+          'Oops, there is no country with that name'
+        );
       }
       return response.json();
     })
